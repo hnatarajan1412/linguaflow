@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "484062529604",
+    "project_id": "eduapp-41260",
+    "storage_bucket": "eduapp-41260.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484062529604:android:a1cdcb00b1d84dbd989411",
+        "android_client_info": {
+          "package_name": "com.mycompany.CounterApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484062529604-1uv583831b6llhtgeiodmjccqns145fo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFEWLyzISMgnC5QjewNUcii1dXs2NMPmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484062529604-1uv583831b6llhtgeiodmjccqns145fo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

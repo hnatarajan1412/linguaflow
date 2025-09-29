@@ -1,0 +1,27 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "eduapp-41260",
+          "appId": "1:484062529604:android:a1cdcb00b1d84dbd989411",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "eduapp-41260",
+          "configurations": {
+            "android": "1:484062529604:android:a1cdcb00b1d84dbd989411",
+            "ios": "1:484062529604:ios:9a8fd135ecf5de04989411",
+            "web": "1:484062529604:web:1b46c3ae21d3e8d0989411"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

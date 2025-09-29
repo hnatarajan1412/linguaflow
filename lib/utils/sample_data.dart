@@ -1,0 +1,1 @@
+// This file has been deleted - using real Firebase data now
