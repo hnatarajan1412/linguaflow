@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_core/firebase_core.dart';
 
 
@@ -14,19 +13,19 @@ void main() async {
   FlutterError.onError = (FlutterErrorDetails details) {
     // Always log the full error and stack
     // ignore: avoid_print
-    print('[FlutterError] ' + details.exceptionAsString());
+    print('[FlutterError] ${details.exceptionAsString()}');
     if (details.stack != null) {
       // ignore: avoid_print
-      print('[FlutterError][stack] ' + details.stack.toString());
+      print('[FlutterError][stack] ${details.stack}');
     }
     FlutterError.presentError(details);
   };
   // Also capture framework-independent async errors
   WidgetsBinding.instance.platformDispatcher.onError = (Object error, StackTrace stack) {
     // ignore: avoid_print
-    print('[onError] ' + error.toString());
+    print('[onError] $error');
     // ignore: avoid_print
-    print('[onError][stack] ' + stack.toString());
+    print('[onError][stack] $stack');
     return true; // handled
   };
 

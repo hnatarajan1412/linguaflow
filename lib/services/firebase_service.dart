@@ -15,7 +15,7 @@ class FirebaseService {
     try {
       final snapshot = await _db.collection('sections').orderBy('order_index').get();
       return snapshot.docs.map((doc) {
-        final data = doc.data() as Map<String, dynamic>;
+        final data = doc.data();
         final orderRaw = data['order_index'];
         final orderIndex = orderRaw is num ? orderRaw.toInt() : 0;
         final created = data['created_at'];
@@ -99,7 +99,7 @@ class FirebaseService {
         .where('level_id', isEqualTo: levelId)
         .get();
     final lessons = snap.docs.map((doc) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       return Lesson.fromFirestore(data, doc.id);
     }).toList();
     lessons.sort((a, b) => a.orderIndex.compareTo(b.orderIndex));
@@ -120,7 +120,7 @@ class FirebaseService {
 
     final challenges = <Challenge>[];
     for (final doc in snap.docs) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       var ch = Challenge.fromFirestore(data, doc.id);
       final options = await getOptionsForChallenge(ch.id);
       options.sort((a, b) => a.displayOrder.compareTo(b.displayOrder));
@@ -136,7 +136,7 @@ class FirebaseService {
         .where('challenge_id', isEqualTo: challengeId)
         .get();
     return snap.docs.map((doc) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       return ChallengeOption.fromFirestore(data, doc.id);
     }).toList();
   }

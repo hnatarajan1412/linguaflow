@@ -114,18 +114,17 @@ class _ChallengePlayerState extends State<ChallengePlayer> {
       }
 
       // ignore: avoid_print
-      print('[TTS] Initialized with locale: ' + guessLocale);
+      print('[TTS] Initialized with locale: $guessLocale');
       setState(() { _ttsReady = true; });
     } catch (e) {
       // ignore: avoid_print
-      print('[TTS] Init error: ' + e.toString());
+      print('[TTS] Init error: $e');
       setState(() { _ttsReady = true; }); // allow attempts anyway
     }
   }
 
   String? _guessLocaleFromChallenge() {
-    final t = (widget.challenge.promptText ?? '') +
-        ' ' + widget.challenge.options.map((o) => o.contentText ?? '').join(' ');
+    final t = '${widget.challenge.promptText ?? ''} ${widget.challenge.options.map((o) => o.contentText ?? '').join(' ')}';
     final s = t.toLowerCase();
     // Very light heuristic for Spanish vs English
     const spanishHints = ['hola', 'gracias', 'adiós', 'buenos', 'días', 'hasta', 'luego', 'yo', 'soy'];
@@ -184,14 +183,14 @@ class _ChallengePlayerState extends State<ChallengePlayer> {
       }
       setState(() { _speaking = true; });
       // ignore: avoid_print
-      print('[TTS] speak: ' + text);
+      print('[TTS] speak: $text');
       try { _tts.stop(); } catch (_) {}
       // Fire speak without await so it runs in the same gesture tick
       // ignore: unawaited_futures
       _tts.speak(text);
     } catch (e) {
       // ignore: avoid_print
-      print('[TTS] speak error: ' + e.toString());
+      print('[TTS] speak error: $e');
     } finally {
       // Reset the speaking indicator after a short delay
       Future.delayed(const Duration(milliseconds: 900), () {

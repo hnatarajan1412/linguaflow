@@ -22,7 +22,7 @@ class _NoopTtsService implements TtsService {
   @override
   Future<void> speak(String text) async {
     // ignore: avoid_print
-    print('[TTS][noop] speak: ' + text);
+    print('[TTS][noop] speak: $text');
   }
 
   @override

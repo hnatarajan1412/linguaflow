@@ -46,7 +46,7 @@ class LeaderboardScreen extends StatelessWidget {
                   children: [
                     const Icon(Icons.star, color: Colors.orange, size: 18),
                     const SizedBox(width: 6),
-                    Text(e.xp.toString() + ' XP'),
+                    Text('${e.xp} XP'),
                   ],
                 ),
               );

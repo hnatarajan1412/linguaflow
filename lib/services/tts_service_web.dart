@@ -66,9 +66,7 @@ class WebTtsService implements TtsService {
     }
 
     // ignore: avoid_print
-    print('[TTS][web] voices loaded: ' + (_voicesLoaded ? 'yes' : 'no') +
-        ' (count=' + ((_synth?.getVoices().length ?? 0)).toString() + ') ' +
-        ' chosen=' + (_voice?.name ?? 'null') + ' lang=' + (_voice?.lang ?? _language));
+    print('[TTS][web] voices loaded: ${_voicesLoaded ? 'yes' : 'no'} (count=${_synth?.getVoices().length ?? 0})  chosen=${_voice?.name ?? 'null'} lang=${_voice?.lang ?? _language}');
   }
 
   void _tryLoadVoices() {
@@ -126,7 +124,7 @@ class WebTtsService implements TtsService {
       print('[TTS][web] audio unlocked');
     } catch (e) {
       // ignore: avoid_print
-      print('[TTS][web] unlock error: ' + e.toString());
+      print('[TTS][web] unlock error: $e');
     }
   }
 
@@ -187,7 +185,7 @@ class WebTtsService implements TtsService {
     bb.add(pcmBytes.buffer.asUint8List());
 
     final String base64Wav = base64Encode(bb.takeBytes());
-    _beepDataUrl = 'data:audio/wav;base64,' + base64Wav;
+    _beepDataUrl = 'data:audio/wav;base64,$base64Wav';
     return _beepDataUrl!;
   }
 
@@ -234,11 +232,11 @@ class WebTtsService implements TtsService {
         print('[TTS][web] Beep fallback');
       }).catchError((e) {
         // ignore: avoid_print
-        print('[TTS][web] Beep playback error: ' + e.toString());
+        print('[TTS][web] Beep playback error: $e');
       });
     } catch (e) {
       // ignore: avoid_print
-      print('[TTS][web] Beep fallback failed: ' + e.toString());
+      print('[TTS][web] Beep fallback failed: $e');
     }
   }
 
@@ -286,7 +284,7 @@ class WebTtsService implements TtsService {
     });
     utt.addEventListener('error', (event) {
       // ignore: avoid_print
-      print('[TTS][web] error: ' + event.type.toString());
+      print('[TTS][web] error: ${event.type}');
       // If speaking fails (e.g., voices blocked / empty), emit a short beep so the user hears feedback
       _beepFallback();
     });
@@ -302,7 +300,7 @@ class WebTtsService implements TtsService {
       }
     } catch (e) {
       // ignore: avoid_print
-      print('[TTS][web] speak() threw: ' + e.toString());
+      print('[TTS][web] speak() threw: $e');
       _beepFallback();
     }
   }

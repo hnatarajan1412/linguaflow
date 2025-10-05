@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } catch (e) {
       if (!mounted) return;
       setState(() {
-        _error = 'Failed to load journey data: ' + e.toString();
+        _error = 'Failed to load journey data: $e';
         _isLoading = false;
       });
     }
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Seeding failed: ' + e.toString())),
+        SnackBar(content: Text('Seeding failed: $e')),
       );
     } finally {
       if (mounted) {

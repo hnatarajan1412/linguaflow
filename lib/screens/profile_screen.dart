@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.settings),
                 title: const Text('Daily goal'),
-                subtitle: Text(((s['daily_goal_xp'] ?? 20) as int).toString() + ' XP/day'),
+                subtitle: Text('${(s['daily_goal_xp'] ?? 20) as int} XP/day'),
               ),
               ListTile(
                 leading: const Icon(Icons.logout),

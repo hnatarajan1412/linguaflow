@@ -2,7 +2,7 @@
 // We use the compat builds to keep the API simple: firebase.auth().
 
 @JS('firebase')
-library firebase_web;
+library;
 
 import 'dart:async';
 import 'dart:js_util' as jsu;

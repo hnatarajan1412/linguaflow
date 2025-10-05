@@ -47,7 +47,7 @@ class FirestoreSeeder {
       'color_theme': 'green',
       'created_at': FieldValue.serverTimestamp(),
     });
-    print('FirestoreSeeder: created section ' + sectionRef.id);
+    print('FirestoreSeeder: created section ${sectionRef.id}');
 
     // 2) Units
     final unitRefs = <DocumentReference>[];
@@ -62,7 +62,7 @@ class FirestoreSeeder {
       unitRefs.add(unitRef);
     }
 
-    print('FirestoreSeeder: created ' + unitRefs.length.toString() + ' units.');
+    print('FirestoreSeeder: created ${unitRefs.length} units.');
 
     // 3) Levels (batch)
     final levelsBatch = db.batch();
@@ -81,7 +81,7 @@ class FirestoreSeeder {
       }
     }
     await levelsBatch.commit();
-    print('FirestoreSeeder: created ' + levelRefs.length.toString() + ' levels.');
+    print('FirestoreSeeder: created ${levelRefs.length} levels.');
 
     // 4) Lessons and 5) Challenges (chunked batches for safety)
     // Each level gets [lessonsPerLevel] lessons; each lesson gets [challengesPerLesson] challenges.
@@ -162,9 +162,7 @@ class FirestoreSeeder {
     await commitLessonsBatch();
     await commitChallengesBatch();
 
-    print('FirestoreSeeder: seeding complete. Levels: ' + levelRefs.length.toString() +
-        ', lessons per level: ' + lessonsPerLevel.toString() +
-        ', challenges per lesson: ' + challengesPerLesson.toString());
+    print('FirestoreSeeder: seeding complete. Levels: ${levelRefs.length}, lessons per level: $lessonsPerLevel, challenges per lesson: $challengesPerLesson');
   }
 
   /// Minimal seeding for testing UI and progress with a fixed user TESTUSER1.

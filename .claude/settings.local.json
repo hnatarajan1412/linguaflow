@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter pub:*)",
+      "Bash(where flutter)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
